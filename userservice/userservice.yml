@@ -1,2 +1,2 @@
 user_endpoint: "http://localhost:8082/user/"
-user_version: 1.2_config-repo
+user_version: 1.2
