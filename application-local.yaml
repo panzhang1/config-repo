@@ -1,57 +1,19 @@
 platform:
-  monitoring:
-    apm:
-      enabled: false
-    logs:
-      json:
-        enabled: false
-  cache:
-    type: caffeine
   database:
     globalschema: BIZX
     dedicatedSchema: false
     datasources:
        - name: dbPool1
-         url: jdbc:sap://10.58.14.27:30259?reconnect=true
-         #url: jdbc:sap://hanadbsh901.hcm-eng.c.ap-cn-1.cloud.sap:30268?reconnect=true
+         url: jdbc:1
          username: PLUMBER_BIZX
          password: Pass1234
          hikari.maximumPoolSize: 20
        - name: dbPool2
-         url: jdbc:sap://10.58.14.27:30259?reconnect=true
-         #url: jdbc:sap://hanadbsh901.hcm-eng.c.ap-cn-1.cloud.sap:30268?reconnect=true
+         url: jdbc:2
          username: BIZX
          password: Pass1234
        - name: dbPool2
-         url: jdbc:sap://10.58.14.27:30259?reconnect=true
-         #url: jdbc:sap://hanadbsh901.hcm-eng.c.ap-cn-1.cloud.sap:30268?reconnect=true
+         url: jdbc:3
          username: PLUMBER_BIZX_PROVISIONER
          password: Pass1234
          group: provision
-spring:
-  cache:
-    cache-names: UserCache
-  redis:
-    host: localhost
-    port: 6379
-  kafka:
-    bootstrap-servers: localhost:9092
-  jpa:
-    database: HANA
-logging:
-  level:
-    org:
-      springframework:
-        jdbc:
-          core:
-            JdbcTemplate: debug
-      apache:
-        kafka: error
-    com:
-      successfactors:
-        strangler: error
-service:
-  tenant:
-    lifecycle:
-      rest:
-        endpoint: http://localhost:8081/rest/tenant-lifecycle/v1/tenants
